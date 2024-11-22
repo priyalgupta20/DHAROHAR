@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Posts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bstyles.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="celebration-bar">Connecting Indian Diaspora to their roots</div>
+            <div class="currency-selector">
+                <select name="currency-select" id="currency-select">
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AED">AED</option>
+                    <option value="EUR">EUR</option>
+                    <option value="YEN">YEN</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR" selected="selected">INR</option>
+                    <option value="SGD">SGD</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <div class="account-section">
+                <span><a href="#" alt="My Account">My Account</a></span>
+                <span><a href="#" alt="Contact Us">Contact Us</a></span>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <ul class="nav-items">
+                <li class="nav-item">
+                    <a href="#">Women</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Handloom Sarees</a></li>
+                        <li><a href="#">Tunics / Dresses</a></li>
+                        <li><a href="#">Shawl / Stole</a></li>
+                        <li><a href="#">Dress Material</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Men</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Top / Shirt</a></li>
+                        <li><a href="#">Jackets</a></li>
+                        <li><a href="#">Handmade Jewelry</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Kids</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Skirts / Pants</a></li>
+                        <li><a href="#">Footwear</a></li>
+                        <li><a href="#">Bags & Purses</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-content">
+            <div class="left-sidebar">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img src="buyer.jpg" alt="Profile Image" class="profile-image">
+                        <div class="profile-info">
+                            <h3>Jane Doe</h3>
+                            <p>Buyer</p>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div>
+                            <h4>Posts</h4>
+                            <p>150</p>
+                        </div>
+                        <div>
+                            <h4>Followers</h4>
+                            <p>2.5k</p>
+                        </div>
+                        <div>
+                            <h4>Following</h4>
+                            <p>300</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="new-post-card">
+                    <div class="new-post-header">Create a New Post</div>
+                    <textarea class="new-post-input" placeholder="What's on your mind?"></textarea>
+                    <div class="new-post-footer">
+                        <button class="post-button">Post</button>
+                    </div>
+                </div>
+
+                <div class="feed-card">
+                    <h4>Latest Notifications</h4>
+                    <p>New buyer added to your network!</p>
+                    <p>Someone liked your post.</p>
+                    <p>You have 2 new followers.</p>
+                    <a href="#" class="feed-link">See more notifications</a>
+                </div>
+            </div>
+
+            <div class="posts-container">
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="buyer.jpg" alt="profile" class="profile-image">
+                        <div class="user-info">
+                            <h3 class="user-name">Jane Doe</h3>
+                            <p class="user-designation">Software Engineer at Tech Solutions</p>
+                        </div>
+                    </div>
+                    <p class="post-content">Excited to share my latest acquisition!</p>
+                    <img src="post.jpeg" style="width: 20rem; height: 20rem;" alt="post" class="post-media">
+                    <div class="post-footer">
+                        <button class="like-button">👍 Like</button>
+                        <button class="comment-button">💬 Comment</button>
+                        <button class="share-button">🔗 Share</button>
+                    </div>
+                    <p class="timestamp">2 hours ago</p>
+                </div>
+
+            </div>
+
+            <div class="right-sidebar">
+                <div class="chat-window">
+                    <div class="chat-header">
+                        <img src="buyer.jpg" alt="Recipient" class="recipient-image">
+                        <div class="recipient-info">
+                            <h3 class="recipient-name">Joe Smith</h3>
+                            <p class="recipient-status">Online</p>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message received">
+                            <p>That is a great piece!</p>
+                            <span class="time">9:30 pm</span>
+                        </div>
+                        <div class="message sent">
+                            <p>Thanks!</p>
+                            <span class="time">9:30 pm</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <textarea id="messageInput" placeholder="Type a message"></textarea>
+                        <button id="sendMessage">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>About Us</p>
+        <p>&copy; Dharohar</p>
+    </footer>
+
+    <script src="bscript.js"></script>
+</body>
+</html>
+

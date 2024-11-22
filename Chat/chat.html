@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cstyles.css">
+    <title>Chat Application</title>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="active-users">
+            <h3>Online</h3>
+            <ul id="user-list">
+                <li onclick="selectUser('Everyone')">Everyone</li>
+                <li onclick="selectUser('User1')">User1</li>
+                <li onclick="selectUser('User2')">User2</li>
+                <li onclick="selectUser('User3')">User3</li>
+                <li onclick="selectUser('User4')">User4</li>
+                <li onclick="selectUser('User5')">User5</li>
+            </ul>
+        </div>
+        <div class="chat-area">
+            <div class="chat-box" id="chat-box"></div>
+            <div class="typing-panel">
+                <input type="text" id="message" placeholder="Type your message..." />
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

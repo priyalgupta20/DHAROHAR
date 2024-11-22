@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking</title>
+  <style>
+   body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdf6e3;
+}
+
+    .container {
+      width: 60%;
+      margin: 50px auto;
+      background-color: #fff;
+      opacity: 0.9;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .order-details, .delivery-details {
+      background-color:  #fdf6e3;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+    }
+
+    .order-details p, .delivery-details p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .order-item {
+      display: flex;
+      align-items: center;
+      gap: 40px; /* Increase gap between image and details */
+      margin-bottom: 20px; /* Add margin for space between sections */
+    }
+
+    .order-item img {
+      max-width: 120px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .item-details p {
+      margin: 5px 0;
+    }
+
+    .order-status {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .step {
+      text-align: center;
+      flex-grow: 1;
+      position: relative;
+    }
+
+    /* Connecting line between steps */
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 100%;
+      height: 4px;
+      background-color: #ddd;
+      z-index: -1;
+      transform: translateX(-50%);
+    }
+
+    .step.active:not(:last-child)::after {
+      background-color: #4caf50;
+    }
+
+    .step span {
+      display: inline-block;
+      background-color: #ddd;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step.active span {
+      background-color: #4caf50;
+    }
+
+    /* Highlight the current step */
+    .step.current span {
+      background-color: #ff9800; /* Orange color for the current step */
+      box-shadow: 0 0 10px rgba(255, 152, 0, 0.7);
+    }
+
+    .step p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .status-details {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .status-details p {
+      font-size: 16px;
+      color: #333;
+      margin: 5px 0;
+    }
+
+    .status-details span {
+      font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+      }
+
+      .order-status {
+        flex-direction: column;
+      }
+
+      .step:not(:last-child)::after {
+        width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Order Tracking</h2>
+
+  <!-- Order Item and Delivery Address Section -->
+  <div class="order-item">
+    <img src= "silk.jpeg" alt="Item Image">
+    <div class="item-details">
+      <p><strong>Item:</strong> Silk Saree</p>
+      <p><strong>Price:</strong> ₹5,850.99</p>
+    </div>
+  </div>
+
+  <!-- Order and Delivery Information -->
+  <div class="order-details">
+    <p><strong>Order Number:</strong> #123456789</p>
+    <p><strong>Expected Delivery:</strong> October 3, 2024</p>
+  </div>
+
+  <div class="delivery-details">
+    <p><strong>Shipping Address:</strong></p>
+    <p>John Doe</p>
+    <p>123 Main St, New Delhi, India</p>
+    <p>Phone: +91 9876543210</p>
+  </div>
+
+  <!-- Order Status Tracking Progress -->
+  <div class="order-status">
+    <div class="step active">
+      <span>1</span>
+      <p>Order Placed</p>
+    </div>
+    <div class="step active">
+      <span>2</span>
+      <p>Order Confirmed</p>
+    </div>
+    <div class="step current">
+      <span>3</span>
+      <p>Shipped</p>
+    </div>
+    <div class="step">
+      <span>4</span>
+      <p>Out for Delivery</p>
+    </div>
+    <div class="step">
+      <span>5</span>
+      <p>Delivered</p>
+    </div>
+  </div>
+
+  <!-- Current Status Information -->
+  <div class="status-details">
+    <p><span>Status:</span> Your order is currently <span>Shipped</span>.</p>
+    <p>Estimated delivery on: <strong>October 3, 2024</strong></p>
+  </div>
+</div>
+
+</body>
+</html>

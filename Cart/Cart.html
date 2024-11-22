@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Shopping Cart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ceb37a;
+            padding: 20px;
+        }
+
+        .cart-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cart-left {
+            background-color: #fdf7e3;
+            padding: 20px;
+            flex: 2;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .cart-right {
+            background-color: #fdf7e3;
+            padding: 20px;
+            flex: 1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h2, h3 {
+            color: #8b4513;
+            margin-bottom: 15px; /* Add space between heading and products */
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px; /* Increase space between items */
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 120px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-details h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #5a3e2b;
+        }
+
+        .item-details p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            color: #8b4513;
+            font-weight: bold;
+        }
+
+        .discount {
+            text-decoration: line-through;
+            color: #a9a9a9;
+            margin-left: 10px;
+        }
+
+        .remove-item {
+            background-color: transparent;
+            color: #8b4513;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .wishlist {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .summary {
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f4f1e4;
+        }
+
+        .summary h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .total-amount {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .apply-coupon {
+            background-color: transparent;
+            color: #8b4513;
+            border: 1px solid #8b4513;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .place-order {
+            width: 100%;
+            padding: 15px;
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-controls button {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .quantity-controls span {
+            font-size: 16px;
+        }
+
+        /* Suggested Buys */
+        .suggested-buys {
+            margin-top: 40px;
+        }
+
+        .suggested-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .suggested-item img {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .suggested-item h4 {
+            font-size: 14px;
+            color: #5a3e2b;
+            margin-bottom: 5px;
+        }
+
+        .suggested-item .price {
+            color: #8b4513;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <!-- Left Cart Items Section -->
+        <div class="cart-left">
+            <h2>Your Shopping Bag</h2>
+
+            <!-- Cart Item 1 -->
+            <div class="cart-item">
+                <img src="showpiece.jpeg" alt="Artisan Pot">
+                <div class="item-details">
+                    <h3><a href="#">Handmade Showpiece</a></h3>
+                    <p>By: Local Artisan</p>
+                    <p>Qty: 
+                        <span class="quantity-controls">
+                            <button>-</button><span>1</span><button>+</button>
+                        </span>
+                    </p>
+                    <p class="price">₹649 <span class="discount">₹1599</span></p>
+                    <p>3 days return available</p>
+                </div>
+                <button class="remove-item">Remove</button>
+            </div>
+
+            <!-- Cart Item 2 -->
+            <div class="cart-item">
+                <img src="silk.jpeg" alt="Silk Saree">
+                <div class="item-details">
+                    <h3><a href="#">Authentic Silk Saree</a></h3>
+                    <p>By: Artisan Weaver</p>
+                    <p>Qty: 
+                        <span class="quantity-controls">
+                            <button>-</button><span>1</span><button>+</button>
+                        </span>
+                    </p>
+                    <p class="price">₹575 <span class="discount">₹1,649</span></p>
+                    <p>14 days return available</p>
+                </div>
+                <button class="remove-item">Remove</button>
+            </div>
+              <!-- Cart Item 2 -->
+            <div class="cart-item">
+                <img src="jhumka.jpeg" alt="Silk Saree">
+                <div class="item-details">
+                    <h3><a href="#">Handcrafted Earrings</a></h3>
+                    <p>By: Artisan Weaver</p>
+                    <p>Qty: 
+                        <span class="quantity-controls">
+                            <button>-</button><span>1</span><button>+</button>
+                        </span>
+                    </p>
+                    <p class="price">₹575 <span class="discount">₹1,649</span></p>
+                    <p>14 days return available</p>
+                </div>
+                <button class="remove-item">Remove</button>
+            </div>
+                
+
+            <button class="wishlist">Add More From Wishlist</button>
+        </div>
+
+        <!-- Right Cart Summary Section -->
+        <div class="cart-right">
+            <div class="summary">
+                <h3>Price Details (2 Items)</h3>
+                <div class="price-row">
+                    <p>Total MRP</p>
+                    <p>₹3,248</p>
+                </div>
+                <div class="price-row">
+                    <p>Discount on MRP</p>
+                    <p>-₹2,024</p>
+                </div>
+                <div class="price-row">
+                    <p>Coupon Discount</p>
+                    <button class="apply-coupon">Apply Coupon</button>
+                </div>
+                <div class="price-row">
+                    <p>Shipping Fee</p>
+                    <p>Free</p>
+                </div>
+                <div class="total-amount">
+                    <p>Total Amount</p>
+                    <p>₹1,224</p>
+                </div>
+                <button class="place-order">Place Order</button>
+            </div>
+
+            <!-- Suggested Buys Section -->
+            <div class="suggested-buys">
+                <h3>Suggested Buys</h3>
+                <div class="suggested-item">
+                    <img src="silk.jpeg" alt="Handmade Showpiece">
+                    <div>
+                        <h4>Handmade Wool Scarf</h4>
+                        <p class="price">₹649</p>
+                    </div>
+                </div>
+
+                <div class="suggested-item">
+                    <img src="showpiece.jpeg" alt="Authentic Silk Saree">
+                    <div>
+                        <h4>Beaded Artisan Bracelet</h4>
+                        <p class="price">₹575</p>
+                    </div>
+                </div>
+
+                <div class="suggested-item">
+                    <img src="jhumka.jpeg" alt="Handcrafted Earrings">
+                    <div>
+                        <h4>Handcrafted Earrings</h4>
+                        <p class="price">₹575</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body

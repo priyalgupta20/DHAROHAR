@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Clothes</title>
+    <link rel="stylesheet" href="clothes.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="celebration-bar">Connecting Indian Diaspora to their roots</div>
+            <div class="currency-selector">
+                <select name="currency-select" id="currency-select">
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AED">AED</option>
+                    <option value="EUR">EUR</option>
+                    <option value="YEN">YEN</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR" selected="selected">INR</option>
+                    <option value="SGD">SGD</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <div class="account-section">
+                <span><a href="#" alt="My Account">My Account</a></span>
+                <span><a href="#" alt="Contact Us">Contact Us</a></span>
+            </div>
+        </div>
+        <nav class="navbar"></nav>
+            <div class="logo">
+                <a href="main.html" alt="Dharohar">
+                    <img src="logo.png" alt="Logo">
+                </a>
+                
+            </div>
+            <ul class="nav-items">
+                <li class="nav-item">
+                    <a href="#">Women</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Handloom Sarees</a></li>
+                        <li><a href="#">Tunics / Dresses</a></li>
+                        <li><a href="#">Shawl / Stole</a></li>
+                        <li><a href="#">Dress Material</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Men</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Top / Shirt</a></li>
+                        <li><a href="#">Jackets</a></li>
+                        <li><a href="#">Handmade Jewelry</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Kids</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Skirts / Pants</a></li>
+                        <li><a href="#">Footwear</a></li>
+                        <li><a href="#">Bags & Purses</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li><a href="main.html">Home</a></li>
+                <li><a href="#">Clothes</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="filters">
+            <div class="filters-gender">
+                <h2> Category </h2>
+                <label><input type="checkbox"> Men</label><br>
+                <label><input type="checkbox"> Women</label><br>
+                <label><input type="checkbox"> Kids</label><br>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="filters-clothing">
+                <h2>Clothing</h2>
+                <label><input type="checkbox"> Sarees</label><br>
+                <label><input type="checkbox"> Women Kurta</label><br>
+                <label><input type="checkbox"> Ethnic Dresses</label><br>
+                <label><input type="checkbox"> Lehenga Choli</label><br>
+                <label><input type="checkbox"> Sherwani</label><br>
+                <label><input type="checkbox"> Dhoti</label><br>
+                <label><input type="checkbox"> Men Kurta</label><br>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="filters-price">
+                <h2>Filter by Price</h2>
+                <label for="priceRange">Price Range: ₹<span id="min-price">500</span> - ₹<span id="max-price">5000</span></label>
+                <input type="range" id="priceRange" min="500" max="5000" step="100" value="5000" oninput="updatePrice()">
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="filters-brands">
+                <h2>Brands</h2>
+                <label><input type="checkbox"> Biba</label><br>
+                <label><input type="checkbox"> Aakriti</label><br>
+                <label><input type="checkbox"> Aurelia</label><br>
+                <label><input type="checkbox"> Indian Terrain</label><br>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="filters-color">
+                <h2>Color</h2>
+                <label><input type="checkbox"> Green</label><br>
+                <label><input type="checkbox"> Red</label><br>
+                <label><input type="checkbox"> Magenta</label><br>
+                <label><input type="checkbox"> Blue</label><br>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="product-list">
+            <div class="product">
+                <a href="#" alt="Blue Kanjeevaram Saree">
+                    <img src="saree.jpg" alt="Product 1">
+                    <h3>Blue Kanjeevaram Saree</h3>
+                    </a>
+                    <p class="price"> Rs 1299.00 </p>
+                
+                
+            </div>
+            <div class="product">
+                <a href="#" alt="Red Anarakali Dress">
+                    <img src="anarkali.jpg" alt="Product 2">
+                    <h3>Red Anarakali Dress</h3>
+                </a>
+                <p class="price"> Rs 1200.00 </p>
+                
+            </div>
+            <div class="product">
+                <a href="#" alt="Cotton Kurta">
+                    <img src="cottonkurta.jpg" alt="Product 3">
+                    <h3>Pink Cotton Kurta</h3>
+                </a>
+                <p class="price"> Rs 550.00 </p>  
+            </div>
+            <div class="product">
+                <a href="#" alt="Men Dhoti">
+                    <img src="dhoti.jpg" alt="Product 4">
+                    <h3>Men Dhoti</h3>
+                </a>
+                <p class="price"> Rs 675.00 </p>  
+            </div>
+            <div class="product">
+                <a href="#" alt="Sherwani">
+                    <img src="sherwani.jpg" alt="Product 5">
+                    <h3>Men sherwani</h3>
+                </a>
+                <p class="price"> Rs 2599.00 </p>  
+            </div>
+            <div class="product">
+                <a href="#" alt="Kurta">
+                    <img src="kurta.jpg" alt="Product 6">
+                    <h3>Men Kurta</h3>
+                </a>
+                <p class="price"> Rs 899.00 </p>  
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>About Us</p>
+        <p>&copy; 2024 Gaatha - A Story of Crafts</p>
+    </footer>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>

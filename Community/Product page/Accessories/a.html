@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Accessories</title>
+    <link rel="stylesheet" href="accessories.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="celebration-bar">Connecting Indian Diaspora to their roots</div>
+            <div class="currency-selector">
+                <select name="currency-select" id="currency-select">
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AED">AED</option>
+                    <option value="EUR">EUR</option>
+                    <option value="YEN">YEN</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR" selected="selected">INR</option>
+                    <option value="SGD">SGD</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <div class="account-section">
+                <span><a href="#" alt="My Account">My Account</a></span>
+                <span><a href="#" alt="Contact Us">Contact Us</a></span>
+            </div>
+        </div>
+        <nav class="navbar"></nav>
+            <div class="logo">
+                <a href="main.html" alt="Dharohar">
+                    <img src="logo.png" alt="Logo">
+                </a>
+                
+            </div>
+            <ul class="nav-items">
+                <li class="nav-item">
+                    <a href="#">Women</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Handloom Sarees</a></li>
+                        <li><a href="#">Tunics / Dresses</a></li>
+                        <li><a href="#">Shawl / Stole</a></li>
+                        <li><a href="#">Dress Material</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Men</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Top / Shirt</a></li>
+                        <li><a href="#">Jackets</a></li>
+                        <li><a href="#">Handmade Jewelry</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Kids</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Skirts / Pants</a></li>
+                        <li><a href="#">Footwear</a></li>
+                        <li><a href="#">Bags & Purses</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li><a href="main.html">Home</a></li>
+                <li><a href="#">Accessories</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="filters">
+            <div class="filters-brand">
+                <h2> Brands </h2>
+                <label><input type="checkbox"> Rangrez</label><br>
+                <label><input type="checkbox"> Zaveri</label><br>
+                <label><input type="checkbox"> Giva</label><br>
+                <label><input type="checkbox"> Rivaaz</label><br>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="filters-price">
+                <h2>Filter by Price</h2>
+                <label for="priceRange">Price Range: ₹<span id="min-price">100</span> - ₹<span id="max-price">50000</span></label>
+                <input type="range" id="priceRange" min="100" max="5000" step="100" value="50000" oninput="updatePrice()">
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="filters-type">
+                <h2> Type </h2>
+                <label><input type="checkbox"> Jewellery Set</label><br>
+                <label><input type="checkbox"> Earrings</label><br>
+                <label><input type="checkbox"> Necklace</label><br>
+                <label><input type="checkbox"> Rings</label><br>
+                <label><input type="checkbox"> Toe Rings</label><br>
+                <label><input type="checkbox"> Anklets</label><br>
+                <label><input type="checkbox"> Mangtika</label><br>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="filters-material">
+                <h2> Material </h2>
+                <label><input type="checkbox"> Gold</label><br>
+                <label><input type="checkbox"> Silver</label><br>
+            </div>
+
+            
+        </div>
+
+        <div class="product-list">
+            <div class="product">
+                <a href="#" alt="jewel set">
+                    <img src="jewelset.jpg" alt="Product 1">
+                    <h3>jewellery set</h3>
+                    </a>
+                <p class="price"> Rs 2099.00 </p>
+                
+                
+            </div>
+            <div class="product">
+                <a href="#" alt="jhumka">
+                    <img src="jhumka.jpg" alt="Product 2">
+                    <h3>jhumka</h3>
+                </a>
+                <p class="price"> Rs 400.00 </p>
+                
+            </div>
+            <div class="product">
+                <a href="#" alt="mangtika">
+                    <img src="mangtika.jpg" alt="Product 3">
+                    <h3>mangtika</h3>
+                </a>
+                <p class="price"> Rs 350.00 </p>  
+            </div>
+            <div class="product">
+                <a href="#" alt="kangan">
+                    <img src="kangan.jpg" alt="Product 4">
+                    <h3>kangan</h3>
+                </a>
+                <p class="price"> Rs 675.00 </p>  
+            </div>
+            <div class="product">
+                <a href="#" alt="ring">
+                    <img src="ring.jpg" alt="Product 5">
+                    <h3>ring</h3>
+                </a>
+                <p class="price"> Rs 599.00 </p>  
+            </div>
+            <div class="product">
+                <a href="#" alt="anklet and ring set">
+                    <img src="anklet ring set.jpg" alt="Product 6">
+                    <h3>anklet and ring set</h3>
+                </a>
+                <p class="price"> Rs 899.00 </p>  
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>About Us</p>
+        <p>&copy; 2024 Gaatha - A Story of Crafts</p>
+    </footer>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>

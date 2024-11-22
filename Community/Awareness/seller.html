@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and Title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Posts</title>
+
+    <!-- Fonts and Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: "Gowun Batang", serif;
+            background-color: #fdf6e3;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header-top {
+            background-color: rgb(167, 89, 33);
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            background-color: #fff1cf;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .nav-items {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fff1cf;
+            list-style: none;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown {
+            display: block;
+        }
+
+        .account-section a {
+            text-decoration: none;
+            color: #fdfcfc;
+            margin-left: 10px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            display: flex;
+            padding: 20px;
+        }
+
+        /* Left Sidebar Styles */
+        .left-sidebar {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Profile Card Styles */
+        .profile-card {
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 16px;
+        }
+
+        .profile-info h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+        }
+
+        .profile-stats div {
+            text-align: center;
+        }
+
+        .profile-stats h4 {
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .profile-stats p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* New Post Card Styles */
+        .new-post-card {
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .new-post-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .new-post-input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+
+        .new-post-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .post-button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #0073b1;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Posts Container Styles */
+        .posts-section {
+    width: 40%;  /* Set the width to 60% for the posts section */
+    padding-right: 20px; /* Add space between posts and news */
+}
+
+
+        .posts-container {
+            flex-grow: 1;
+            padding-left: 20px;
+            display: flex;
+    flex-direction: column; /* Stack posts vertically */
+    align-items: center; /* Center posts horizontally */
+        }
+
+        .post-card {
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            
+    width: 100%; /* Allow full width */
+    max-width: 400px; /* Limit max width for larger screens */
+}
+
+        .post-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .post-header .profile-image {
+            width: 50px;
+            height: 50px;
+        }
+
+        .user-info {
+            flex-grow: 1;
+        }
+
+        .user-name {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .user-designation {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .post-content {
+            margin: 16px 0;
+            font-size: 16px;
+        }
+
+        .post-media {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+
+        .like-button,
+        .comment-button,
+        .share-button {
+            background: none;
+            border: none;
+            color: #0073b1;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .timestamp {
+            margin-top: 8px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .feed-card {
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .feed-card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feed-card p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .feed-link {
+            text-decoration: none;
+            color: #0073b1;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        /* Right Sidebar Styles */
+        .right-sidebar {
+    width: 24%;
+    padding-left: 20px;
+}
+/* Chat Card Styles */
+
+/* Right Sidebar */
+#rightSidebar {
+    width: 300px; /* Set this to your desired width */
+    height: 100vh;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* Chat Section */
+.chat-window {
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 500px; /* Reduced height */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Chat Header */
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px; /* Reduced padding */
+    background-color: rgb(167, 89, 33); /* Blue background for header */
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.recipient-image {
+    width: 35px; /* Reduced size */
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.recipient-info {
+    flex-grow: 1;
+}
+
+.recipient-name {
+    font-size: 14px; /* Reduced font size */
+    margin: 0;
+    font-weight: bold;
+}
+
+.recipient-status {
+    font-size: 10px;
+    color: #f1f1f1;
+}
+
+/* Chat Messages */
+.chat-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    width: 100%;
+    background-color: #f9f9f9; /* Light background for chat messages */
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 6px 10px; /* Reduced padding */
+    border-radius: 12px;
+    max-width: 75%; /* Keeps the message from stretching too wide */
+    font-size: 12px; /* Reduced font size */
+    line-height: 1.4;
+}
+
+.message.received {
+    background-color: #e1e1e1;
+    align-self: flex-start;
+}
+
+.message.sent {
+    background-color: rgb(167, 89, 33);
+    color: white;
+    align-self: flex-end;
+}
+
+.time {
+    display: block;
+    font-size: 9px; /* Smaller time text */
+    color: #999;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Chat Input */
+.chat-input {
+    display: flex;
+    padding: 8px 10px; /* Reduced padding */
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+}
+
+#messageInput {
+    flex-grow: 1;
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 12px; /* Reduced font size */
+    resize: none;
+}
+
+#sendMessage {
+    margin-left: 10px;
+    padding: 6px 12px;
+    background-color: rgb(167, 89, 33);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px; /* Reduced font size */
+    transition: background-color 0.3s ease;
+}
+
+#sendMessage:hover {
+    background-color: #005f8c; /* Darker blue on hover */
+}
+
+        /* Footer Styles */
+        footer {
+            background-color: rgb(167, 89, 33);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="celebration-bar">Connecting Indian Diaspora to their roots</div>
+            <div class="currency-selector">
+                <select name="currency-select" id="currency-select">
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AED">AED</option>
+                    <option value="EUR">EUR</option>
+                    <option value="YEN">YEN</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR" selected="selected">INR</option>
+                    <option value="SGD">SGD</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <div class="account-section">
+                <span><a href="#" alt="My Account">My Account</a></span>
+                <span><a href="#" alt="Contact Us">Contact Us</a></span>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="" alt="Logo">
+            </div>
+            <ul class="nav-items">
+                <li class="nav-item">
+                    <a href="#">Women</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Handloom Sarees</a></li>
+                        <li><a href="#">Tunics / Dresses</a></li>
+                        <li><a href="#">Shawl / Stole</a></li>
+                        <li><a href="#">Dress Material</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Men</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Top / Shirt</a></li>
+                        <li><a href="#">Jackets</a></li>
+                        <li><a href="#">Handmade Jewelry</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Kids</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Skirts / Pants</a></li>
+                        <li><a href="#">Footwear</a></li>
+                        <li><a href="#">Bags & Purses</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="main-content">
+            <!-- Left Sidebar -->
+           
+<div class="left-sidebar">
+    <!-- Profile Section -->
+    <div class="profile-card">
+        <div class="profile-header">
+            <img src="profileArtisan.jpg" alt="Profile Image" class="profile-image">
+            <div class="profile-info">
+                <h3>John Doe</h3>
+                <p>Artisan from Jaipur</p>
+            </div>
+        </div>
+        <div class="profile-stats">
+            <div>
+                <h4>Posts</h4>
+                <p>150</p>
+            </div>
+            <div>
+                <h4>Followers</h4>
+                <p>2.5k</p>
+            </div>
+            <div>
+                <h4>Following</h4>
+                <p>300</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Post Section -->
+    <div class="new-post-card">
+        <div class="new-post-header">Create a New Post</div>
+        <textarea class="new-post-input" placeholder="What's on your mind?"></textarea>
+        <div class="new-post-footer">
+            <button class="post-button">Post</button>
+        </div>
+    </div>
+
+    <!-- Latest Notifications Section -->
+    <div class="feed-card">
+        <h4>Latest Notifications</h4>
+        <p>New artisan added to your network!</p>
+        <p>Someone liked your post.</p>
+        <p>You have 2 new followers.</p>
+        <a href="#" class="feed-link">See more notifications</a>
+    </div>
+
+    <!-- Suggested Connections Section -->
+    <div class="feed-card">
+        <h4>Suggested Connections</h4>
+        <p>Artisan 1</p>
+        <p>Artisan 2</p>
+        <p>Artisan 3</p>
+        <a href="#" class="feed-link">See all suggestions</a>
+    </div>
+</div>
+
+
+            <!-- Posts Section -->
+            <div class="posts-container">
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="profileArtisan.jpg" alt="profile" class="profile-image">
+                        <div class="user-info">
+                            <h3 class="user-name">John Doe</h3>
+                            <p class="user-designation">Software Engineer at Tech Solutions</p>
+                        </div>
+                    </div>
+                    <p class="post-content">Excited to share my latest project!</p>
+                    <img src="post.jpg" style="width: 20rem; height: 20rem;" alt="post" class="post-media">
+                    <div class="post-footer">
+                        <button class="like-button">👍 Like</button>
+                        <button class="comment-button">💬 Comment</button>
+                        <button class="share-button">🔗 Share</button>
+                    </div>
+                    <p class="timestamp">2 hours ago</p>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="profileArtisan.jpg" alt="profile" class="profile-image">
+                        <div class="user-info">
+                            <h3 class="user-name">Jane Doe</h3>
+                            <p class="user-designation">Artisan from Jaipur</p>
+                        </div>
+                    </div>
+                    <p class="post-content">Just finished a new handmade jewelry set!</p>
+                    
+                    <div class="post-footer">
+                        <button class="like-button">👍 Like</button>
+                        <button class="comment-button">💬 Comment</button>
+                        <button class="share-button">🔗 Share</button>
+                    </div>
+                    <p class="timestamp">3 hours ago</p>
+                </div>
+            </div>
+            
+ <!-- Right Sidebar -->
+<div class="right-sidebar">
+    <!-- Chat Section -->
+    <div class="chat-window">
+        <!-- Chat Header (Recipient Info) -->
+        <div class="chat-header">
+            <img src="profileArtisan.jpg" alt="Recipient" class="recipient-image">
+            <div class="recipient-info">
+                <h3 class="recipient-name">CSE 2 Priyal Gupta</h3>
+                <p class="recipient-status">Online</p>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Example messages -->
+            <div class="message received">
+                <p>Mai soch rhi thi rakhni chats upr thi na?</p>
+                <span class="time">9:30 pm</span>
+            </div>
+            <div class="message sent">
+                <p>Send a message likhne ki zrurt ni h</p>
+                <span class="time">9:30 pm</span>
+            </div>
+        </div>
+
+        <!-- Message Input -->
+        <div class="chat-input">
+            <textarea id="messageInput" placeholder="Type a message"></textarea>
+            <button id="sendMessage">Send</button>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+   
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>About Us</p>
+        <p>&copy; 2024 Gaatha - A Story of Crafts</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Like Button Functionality
+        document.querySelectorAll('.like-button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                alert('You liked the post!');
+            });
+        });
+
+        // Comment Button Functionality
+        document.querySelectorAll('.comment-button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                alert('You commented on the post!');
+            });
+        });
+
+        // Share Button Functionality
+        document.querySelectorAll('.share-button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                alert('You shared the post!');
+            });
+        });
+            // Add event listener to the "Send Message" button
+    document.getElementById('sendMessage').addEventListener('click', function() {
+        // Get the message input
+        const messageInput = document.getElementById('messageInput');
+        const message = messageInput.value.trim();
+
+        // Ensure the message is not empty
+        if (message !== '') {
+            // Create a new message element
+            const newMessage = document.createElement('div');
+            newMessage.classList.add('message', 'sent');
+            newMessage.innerHTML = `<p>${message}</p><span class="time">${new Date().toLocaleTimeString()}</span>`;
+
+            // Append the new message to the chat messages container
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.appendChild(newMessage);
+
+            // Scroll the chat to the bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Clear the input field
+            messageInput.value = '';
+        }
+    });
+
+       
+
+    </script>
+</body>
+</html>

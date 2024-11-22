@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and Title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Posts</title>
+
+    <!-- Fonts and Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: "Lora", serif;
+            background-color: #f4f4f2;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header-top {
+            background-color: #a75921;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            background-color: #fff1cf;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .nav-items {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fff1cf;
+            list-style: none;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown {
+            display: block;
+        }
+
+        .account-section a {
+            text-decoration: none;
+            color: #fdfcfc;
+            margin-left: 10px;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        /* Left Sidebar: Government Schemes */
+        .left-sidebar {
+            width: 65%;
+        }
+
+       /* Scheme List Styling */
+.scheme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between items */
+}
+
+.scheme-item {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scheme-image-small {
+    width: 50px; /* Set size for the small image */
+    height: 50px; /* Keep it square */
+    border-radius: 8px; /* Rounded corners */
+    margin-right: 15px; /* Space between image and content */
+}
+
+.scheme-content {
+    flex-grow: 1; /* Allow content to take remaining space */
+}
+
+.scheme-link {
+    text-decoration: none;
+    color: #0073b1; /* Link color */
+    font-weight: bold; /* Bold link */
+    display: block; /* Make it block-level for full clickable area */
+    margin-bottom: 5px; /* Space below the link */
+}
+
+
+        /* Right Sidebar: News Articles */
+        .right-sidebar {
+            width: 30%;
+        }
+
+        .news-card {
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .news-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #a75921;
+        }
+
+        .feed-link {
+            text-decoration: none;
+            color: #0073b1;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #a75921;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="celebration-bar">Connecting Indian Diaspora to their roots</div>
+            <div class="currency-selector">
+                <select name="currency-select" id="currency-select">
+                    <option value="AUD">AUD</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AED">AED</option>
+                    <option value="EUR">EUR</option>
+                    <option value="YEN">YEN</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR" selected="selected">INR</option>
+                    <option value="SGD">SGD</option>
+                    <option value="USD">USD</option>
+                </select>
+            </div>
+            <div class="account-section">
+                <span><a href="#" alt="My Account">My Account</a></span>
+                <span><a href="#" alt="Contact Us">Contact Us</a></span>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="" alt="Logo">
+            </div>
+            <ul class="nav-items">
+                <li class="nav-item">
+                    <a href="#">Women</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Handloom Sarees</a></li>
+                        <li><a href="#">Tunics / Dresses</a></li>
+                        <li><a href="#">Shawl / Stole</a></li>
+                        <li><a href="#">Dress Material</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Men</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Top / Shirt</a></li>
+                        <li><a href="#">Jackets</a></li>
+                        <li><a href="#">Handmade Jewelry</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Kids</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Skirts / Pants</a></li>
+                        <li><a href="#">Footwear</a></li>
+                        <li><a href="#">Bags & Purses</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Government Schemes Section -->
+        <div class="left-sidebar">
+            <h2>Government Schemes</h2>
+            <div class="scheme-list">
+                <div class="scheme-item">
+                    <img src="PMEGP.png" alt="Scheme 1" style= "width: 10rem;height: 10rem;" class="scheme-image-small">
+                    <div class="scheme-content">
+                        <a href="#" class="scheme-link">Prime Minister's Employment Generation Programme</a>
+                        <p>Objective: To generate self-employment and create job opportunities in rural and urban areas by supporting the establishment of micro-enterprises.
+</p>
+<p>
+                            Financial Assistance: Provides subsidy support and bank loans, with subsidy rates of 25% for general category and 35% for special categories (SC/ST, women).
+</p>
+                    </div>
+                </div>
+                <div class="scheme-item">
+                    <img src="day-nrlm.webp" alt="Scheme 2" class="scheme-image-small"style= "width: 10rem;height: 10rem;">
+                    <div class="scheme-content">
+                        <a href="#" class="scheme-link">Deendayal Antyodaya Yojana - National Rural Livelihoods Mission (DAY-NRLM)</a>
+                        <p>This scheme aims at empowering women in rural areas. Financial Assistance: Provides subsidy support and bank loans, with subsidy rates of 25% for general category and 35% for special categories (SC/ST, women).</p>
+                    </div>
+                </div>
+                <div class="scheme-item">
+                    <img src="day-nrlm.webp" alt="Scheme 3" class="scheme-image-small" style= "width: 10rem;height: 10rem;">
+                    <div class="scheme-content">
+                        <a href="#" class="scheme-link">Scheme Title 3</a>
+                        <p>This scheme provides financial aid for education. Financial Assistance: Provides subsidy support and bank loans, with subsidy rates of 25% for general category and 35% for special categories (SC/ST, women).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- News Articles Section -->
+        <div class="right-sidebar">
+            <h2>Latest Articles</h2>
+            <div class="news-card">
+                <img src="news.jpeg" alt="News Article" class="news-image">
+                <h4 class="news-title">Article Title 1</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#" class="feed-link">Read more</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>About Us</p>
+        <p>&copy; 2024 Gaatha - A Story of Crafts</p>
+    </footer>
+</body>
+</html>
